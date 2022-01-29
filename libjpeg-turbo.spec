@@ -6,7 +6,7 @@
 #
 Name     : libjpeg-turbo
 Version  : 2.1.2
-Release  : 62
+Release  : 63
 URL      : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.2/libjpeg-turbo-2.1.2.tar.gz
 Source0  : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.2/libjpeg-turbo-2.1.2.tar.gz
 Source1  : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.2/libjpeg-turbo-2.1.2.tar.gz.sig
