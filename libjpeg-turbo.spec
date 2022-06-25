@@ -6,7 +6,7 @@
 #
 Name     : libjpeg-turbo
 Version  : 2.1.3
-Release  : 66
+Release  : 67
 URL      : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.3/libjpeg-turbo-2.1.3.tar.gz
 Source0  : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.3/libjpeg-turbo-2.1.3.tar.gz
 Source1  : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.3/libjpeg-turbo-2.1.3.tar.gz.sig
@@ -135,7 +135,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656047195
+export SOURCE_DATE_EPOCH=1656131026
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -224,7 +224,7 @@ cd ../clr-build-avx2;
 make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1656047195
+export SOURCE_DATE_EPOCH=1656131026
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libjpeg-turbo
 cp %{_builddir}/libjpeg-turbo-2.1.3/LICENSE.md %{buildroot}/usr/share/package-licenses/libjpeg-turbo/e3f989b72a7dce97f48943ac8c8b5e5ca16653f2
