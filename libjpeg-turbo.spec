@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x7EC2DBB6F4DBF434 (information@libjpeg-turbo.org)
 #
 Name     : libjpeg-turbo
-Version  : 2.1.5
-Release  : 77
-URL      : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.5/libjpeg-turbo-2.1.5.tar.gz
-Source0  : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.5/libjpeg-turbo-2.1.5.tar.gz
-Source1  : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.5/libjpeg-turbo-2.1.5.tar.gz.sig
+Version  : 2.1.5.1
+Release  : 78
+URL      : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.5.1/libjpeg-turbo-2.1.5.1.tar.gz
+Source0  : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.5.1/libjpeg-turbo-2.1.5.1.tar.gz
+Source1  : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.5.1/libjpeg-turbo-2.1.5.1.tar.gz.sig
 Summary  : A SIMD-accelerated JPEG codec that provides the TurboJPEG API
 Group    : Development/Tools
 License  : BSD-3-Clause IJG
@@ -139,15 +139,15 @@ staticdev components for the libjpeg-turbo package.
 
 
 %prep
-%setup -q -n libjpeg-turbo-2.1.5
-cd %{_builddir}/libjpeg-turbo-2.1.5
+%setup -q -n libjpeg-turbo-2.1.5.1
+cd %{_builddir}/libjpeg-turbo-2.1.5.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1675208887
+export SOURCE_DATE_EPOCH=1676066957
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -236,9 +236,10 @@ cd ../clr-build-avx2;
 make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1675208887
+export SOURCE_DATE_EPOCH=1676066957
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libjpeg-turbo
+cp %{_builddir}/libjpeg-turbo-%{version}/LICENSE.md %{buildroot}/usr/share/package-licenses/libjpeg-turbo/bc74f8077b31b61fec267754f51e9b90d526a81b || :
 cp %{_builddir}/libjpeg-turbo-%{version}/release/License.rtf %{buildroot}/usr/share/package-licenses/libjpeg-turbo/f0b17b88210d4efef996d99421683315b8ded689 || :
 pushd clr-build32
 %make_install32
@@ -338,6 +339,7 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
+/usr/share/package-licenses/libjpeg-turbo/bc74f8077b31b61fec267754f51e9b90d526a81b
 /usr/share/package-licenses/libjpeg-turbo/f0b17b88210d4efef996d99421683315b8ded689
 
 %files man
