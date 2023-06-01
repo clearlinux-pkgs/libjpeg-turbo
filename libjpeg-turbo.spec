@@ -7,7 +7,7 @@
 #
 Name     : libjpeg-turbo
 Version  : 2.1.5.1
-Release  : 79
+Release  : 80
 URL      : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.5.1/libjpeg-turbo-2.1.5.1.tar.gz
 Source0  : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.5.1/libjpeg-turbo-2.1.5.1.tar.gz
 Source1  : https://sourceforge.net/projects/libjpeg-turbo/files/2.1.5.1/libjpeg-turbo-2.1.5.1.tar.gz.sig
@@ -128,7 +128,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683044998
+export SOURCE_DATE_EPOCH=1685639570
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -217,7 +217,7 @@ cd ../clr-build-avx2;
 make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1683044998
+export SOURCE_DATE_EPOCH=1685639570
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libjpeg-turbo
 cp %{_builddir}/libjpeg-turbo-%{version}/LICENSE.md %{buildroot}/usr/share/package-licenses/libjpeg-turbo/bc74f8077b31b61fec267754f51e9b90d526a81b || :
@@ -268,8 +268,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libjpeg.so
-/V3/usr/lib64/libturbojpeg.so
 /usr/include/jconfig.h
 /usr/include/jerror.h
 /usr/include/jmorecfg.h
@@ -303,9 +301,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libjpeg.so.62
 /V3/usr/lib64/libjpeg.so.62.3.0
-/V3/usr/lib64/libturbojpeg.so.0
 /V3/usr/lib64/libturbojpeg.so.0.2.0
 /usr/lib64/libjpeg.so.62
 /usr/lib64/libjpeg.so.62.3.0
