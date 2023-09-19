@@ -5,9 +5,10 @@
 #
 # Source0 file verified with key 0x7EC2DBB6F4DBF434 (information@libjpeg-turbo.org)
 #
+%define keepstatic 1
 Name     : libjpeg-turbo
 Version  : 3.0.0
-Release  : 81
+Release  : 82
 URL      : https://sourceforge.net/projects/libjpeg-turbo/files/3.0.0/libjpeg-turbo-3.0.0.tar.gz
 Source0  : https://sourceforge.net/projects/libjpeg-turbo/files/3.0.0/libjpeg-turbo-3.0.0.tar.gz
 Source1  : https://sourceforge.net/projects/libjpeg-turbo/files/3.0.0/libjpeg-turbo-3.0.0.tar.gz.sig
@@ -119,6 +120,24 @@ Group: Default
 man components for the libjpeg-turbo package.
 
 
+%package staticdev
+Summary: staticdev components for the libjpeg-turbo package.
+Group: Default
+Requires: libjpeg-turbo-dev = %{version}-%{release}
+
+%description staticdev
+staticdev components for the libjpeg-turbo package.
+
+
+%package staticdev32
+Summary: staticdev32 components for the libjpeg-turbo package.
+Group: Default
+Requires: libjpeg-turbo-dev = %{version}-%{release}
+
+%description staticdev32
+staticdev32 components for the libjpeg-turbo package.
+
+
 %prep
 %setup -q -n libjpeg-turbo-3.0.0
 cd %{_builddir}/libjpeg-turbo-3.0.0
@@ -128,7 +147,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1688405679
+export SOURCE_DATE_EPOCH=1695141625
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -217,7 +236,7 @@ cd ../clr-build-avx2;
 make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1688405679
+export SOURCE_DATE_EPOCH=1695141625
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libjpeg-turbo
 cp %{_builddir}/libjpeg-turbo-%{version}/LICENSE.md %{buildroot}/usr/share/package-licenses/libjpeg-turbo/bc74f8077b31b61fec267754f51e9b90d526a81b || :
@@ -327,3 +346,13 @@ popd
 /usr/share/man/man1/jpegtran.1
 /usr/share/man/man1/rdjpgcom.1
 /usr/share/man/man1/wrjpgcom.1
+
+%files staticdev
+%defattr(-,root,root,-)
+/usr/lib64/libjpeg.a
+/usr/lib64/libturbojpeg.a
+
+%files staticdev32
+%defattr(-,root,root,-)
+/usr/lib32/libjpeg.a
+/usr/lib32/libturbojpeg.a
